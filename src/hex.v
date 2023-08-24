@@ -70,7 +70,6 @@ pub fn decode(src string) !string {
 }
 
 // encode_struct converts a struct to hexadecimal bytes
-[unsafe]
 pub fn encode_struct<T>(@struct &T) ![]u8 {
 	size := int(sizeof(T))
 	bytes := unsafe { voidptr(@struct).vbytes(size) }
@@ -83,7 +82,6 @@ pub fn encode_struct<T>(@struct &T) ![]u8 {
 }
 
 // decode_struct converts hexadecimal bytes to a struct
-[unsafe]
 pub fn decode_struct<T>(src []u8) !T {
 	size := int(sizeof(T))
 	if size <= 0 {
